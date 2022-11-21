@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/mainFragment"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.mijnwerkervaringen.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_lijstErvaringenFragment"
+            app:destination="@id/lijstErvaringenFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_gebruikerFragment"
+            app:destination="@id/GebruikerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lijstErvaringenFragment"
+        android:name="com.example.mijnwerkervaringen.LijstErvaringenFragment"
+        android:label="LijstErvaringenFragment"
+        tools:layout="@layout/fragment_lijst_ervaringen">
+        <action
+            android:id="@+id/action_lijstErvaringenFragment_to_addErvaringFragment"
+            app:destination="@id/addErvaringFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/GebruikerFragment"
+        android:name="com.example.mijnwerkervaringen.GebruikerFragment"
+        android:label="fragment_gebruiker"
+        tools:layout="@layout/fragment_gebruiker" >
+        <argument
+            android:name="gebruiker"
+            app:argType="com.example.mijnwerkervaringen.Gebruiker" />
+    </fragment>
+    <fragment
+        android:id="@+id/addErvaringFragment"
+        android:name="com.example.mijnwerkervaringen.AddErvaringFragment"
+        android:label="AddErvaringFragment"
+        tools:layout="@layout/fragment_add_ervaring"/>
+
+</navigation>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="myModel"
+            type="com.example.mijnwerkervaringen.MainViewModel">
+        </variable>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/achtergrond"
+        tools:context=".MainFragment">
+
+        <TextView
+            android:id="@+id/WelkomApp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="75dp"
+            android:fontFamily="@font/advent_pro_bold"
+            android:shadowColor="#3E3D3D"
+            android:text="@string/WelkomApp1"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/welkomApp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/material_dynamic_primary90"
+            android:fontFamily="@font/calligraffitti"
+            android:shadowColor="#3E3D3D"
+            android:text="@string/WelkomApp2"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/WelkomApp" />
+
+        <TextView
+            android:id="@+id/tekstWelkom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/advent_pro_medium"
+            android:text="@string/Welkomtekst"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/welkomApp" />
+
+        <Button
+            android:id="@+id/btnNaarGebruikerGegevens"
+            android:layout_width="175dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="80dp"
+            android:background="@color/material_dynamic_neutral_variant95"
+            android:backgroundTintMode="screen"
+            android:fontFamily="@font/advent_pro_medium"
+            android:onClick="@{() -> myModel.naarGebruikerGegevens()}"
+            android:text="@string/GebruikersGegevens"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tekstWelkom" />
+
+        <Button
+            android:id="@+id/btnLijstErvaringen"
+            android:layout_width="175dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/material_dynamic_neutral_variant95"
+            android:backgroundTintMode="screen"
+            android:fontFamily="@font/advent_pro_medium"
+            android:foregroundTintMode="multiply"
+            android:onClick="@{() -> myModel.naarErvaringen()}"
+            android:shadowColor="@color/black"
+            android:shadowDx="@dimen/material_emphasis_disabled"
+            android:text="@string/Ervaringen"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnNaarGebruikerGegevens" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="400dp"
+            android:layout_height="250dp"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/school" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

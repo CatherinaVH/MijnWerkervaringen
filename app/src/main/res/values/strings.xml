@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Mijn Werkervaringen</string>
+    <string name="WelkomApp1">Welkom bij</string>
+    <string name="WelkomApp2">Mijn Werkervaringen</string>
+    <string name="Welkomtekst">Verzamel hier je ervaringen bij scholengroep Stad Gent</string>
+    <string name="GebruikersGegevens">Naar gegevens gebruiker</string>
+    <string name="Ervaringen">Naar lijst ervaringen</string>
+    <string name="ErvaringenMenu">Lijst ervaringen</string>
+    <string name="GebruikersGegevensMenu">Gegevens gebruiker</string>
+    <string name="ToevoegenMenu">Ervaring toevoegen</string>
+    <string name="SchoolDetail">School:</string>
+    <string name="datumVan">Gewerkt vanaf: </string>
+</resources>

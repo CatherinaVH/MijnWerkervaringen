@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="myModel"
+            type="com.example.mijnwerkervaringen.GebruikerViewModel">
+        </variable>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/achtergrond"
+        tools:context=".GebruikerFragment">
+
+        <TextView
+            android:id="@+id/gVoorNaam2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-150dp"
+            android:layout_marginTop="40dp"
+            android:text="@{myModel.gebruiker.voorNaam}"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gFamilieNaam" />
+
+        <TextView
+            android:id="@+id/diploma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="40dp"
+            android:text="Hoogst behaald diploma"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Woonplaats" />
+
+        <TextView
+            android:id="@+id/geboortedatum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="40dp"
+            android:text="Geboortedatum"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/voorNaam" />
+
+        <TextView
+            android:id="@+id/voorNaam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="40dp"
+            android:text="Voornaam"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/FamilieNaam" />
+
+        <TextView
+            android:id="@+id/FamilieNaam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="32dp"
+            android:text="Familienaam"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fotoCath" />
+
+        <TextView
+            android:id="@+id/Woonplaats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="40dp"
+            android:text="Woonplaats"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/geboortedatum" />
+
+        <ImageView
+            android:id="@+id/fotoCath"
+            android:layout_width="119dp"
+            android:layout_height="153dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/cath" />
+
+        <TextView
+            android:id="@+id/gFamilieNaam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-150dp"
+            android:layout_marginTop="32dp"
+            android:text="@{myModel.Gebruiker.familieNaam}"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fotoCath" />
+
+        <TextView
+            android:id="@+id/gGeboortedatum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-150dp"
+            android:layout_marginTop="40dp"
+            android:text="@{myModel.gebruiker.geboortedatum}"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gVoorNaam2" />
+
+        <TextView
+            android:id="@+id/gWoonplaats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-150dp"
+            android:layout_marginTop="40dp"
+            android:text="@{myModel.gebruiker.woonplaats}"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gGeboortedatum" />
+
+        <TextView
+            android:id="@+id/gDiploma"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-150dp"
+            android:layout_marginTop="40dp"
+            android:text="@{myModel.gebruiker.behaaldDiploma}"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gWoonplaats" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
