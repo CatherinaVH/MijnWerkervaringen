@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/GebruikerFragment"
+        android:id="@+id/gebruikerActivity"
         android:title="@string/GebruikersGegevensMenu" />
     <item
         android:id="@+id/lijstErvaringenFragment"

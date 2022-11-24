@@ -5,8 +5,10 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.FragmentContainer
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
+import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -16,49 +18,79 @@ import com.example.mijnwerkervaringen.databinding.FragmentLijstErvaringenBinding
 
 class LijstErvaringenFragment : Fragment() {
 
-    private lateinit var viewModel: LijstErvaringenViewModel
-    private lateinit var binding: FragmentLijstErvaringenBinding
+//    private lateinit var viewModel: LijstErvaringenViewModel
+//    private lateinit var binding: FragmentLijstErvaringenBinding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_lijst_ervaringen, container, false)
-        viewModel = ViewModelProvider(this).get(LijstErvaringenViewModel::class.java)
+        val binding : FragmentLijstErvaringenBinding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_lijst_ervaringen, container, false)
 
-        binding.lijstErvaringen.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        val application = requireNotNull(this.activity).application
 
-        var adapter = LijstErvaringenAdapter(ErvaringClickListener {
-            viewModel.clickErvaring(it)
-        })
+        val dataSource = ErvaringDatabase.getInstance(application).ervaringDatabaseDao
 
-        viewModel.ervaringen.observe(viewLifecycleOwner, Observer {
-            it?.let {
-                adapter.submitList(it)
-            }
-        } )
+        val viewModelFactory = LijstErvaringenViewModelFactory(dataSource, application)
 
-        viewModel.voegNieuweErvaringToe.observe(viewLifecycleOwner, Observer {
-            if (it) {
-                navigeerNaarNieuweErvaringToevoegen()
-            }
-        })
+        val lijstErvaringenViewModel =
+            ViewModelProvider(
+                this, viewModelFactory).get(LijstErvaringenViewModel::class.java)
 
-        binding.myModel = viewModel
-
-        binding.lijstErvaringen.adapter = adapter
-        val manager = LinearLayoutManager(activity)
-        binding.lijstErvaringen.layoutManager = manager
-
-        setHasOptionsMenu(true)
+        binding.setLifecycleOwner(this)
+        binding.myModel = lijstErvaringenViewModel
 
         return binding.root
     }
 
-    private fun navigeerNaarNieuweErvaringToevoegen() {
-        requireView().findNavController()
-            .navigate(LijstErvaringenFragmentDirections.actionLijstErvaringenFragmentToAddErvaringFragment())
-        viewModel.navigateToWerkErvaringenFinished()
-    }
+
+//class LijstErvaringenFragment : Fragment() {
+//
+//    private lateinit var viewModel: LijstErvaringenViewModel
+//    private lateinit var binding: FragmentLijstErvaringenBinding
+//
+//    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+//        savedInstanceState: Bundle?): View? {
+//
+//        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_lijst_ervaringen, container, false)
+//        viewModel = ViewModelProvider(this).get(LijstErvaringenViewModel::class.java)
+//
+//        binding.lijstErvaringen.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+//
+//        var adapter = LijstErvaringenAdapter(ErvaringClickListener {
+//            viewModel.clickErvaring(it)
+//        })
+//
+//        viewModel.ervaringen.observe(viewLifecycleOwner, Observer {
+//            it?.let {
+//                adapter.submitList(it)
+//            }
+//        } )
+//
+//        viewModel.voegNieuweErvaringToe.observe(viewLifecycleOwner, Observer {
+//            if (it) {
+//                navigeerNaarNieuweErvaringToevoegen()
+//            }
+//        })
+//
+//        binding.myModel = viewModel
+//
+//        binding.lijstErvaringen.adapter = adapter
+//        val manager = LinearLayoutManager(activity)
+//        binding.lijstErvaringen.layoutManager = manager
+//
+//        setHasOptionsMenu(true)
+//
+//        return binding.root
+//    }
+//
+//    private fun navigeerNaarNieuweErvaringToevoegen() {
+//        requireView().findNavController()
+//            .navigate(LijstErvaringenFragmentDirections.actionLijstErvaringenFragmentToAddErvaringFragment())
+//        viewModel.navigateToWerkErvaringenFinished()
+//    }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
