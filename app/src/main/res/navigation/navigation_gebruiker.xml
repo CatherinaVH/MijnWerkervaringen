@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_gebruiker"
+    app:startDestination="@id/gebruikerFragment"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <fragment
+        android:id="@+id/gebruikerFragment"
+        android:name="com.example.mijnwerkervaringen.GebruikerFragment"
+        android:label="GebruikerFragment"
+        tools:layout="@layout/fragment_gebruiker"/>
+</navigation>

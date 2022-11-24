@@ -44,7 +44,7 @@ class MainFragment : Fragment() {
     fun navigeerNaarGebruikerGegevens() {
         var gebruiker: Gebruiker = viewModel.gebruiker.value!!
         requireView().findNavController()
-            .navigate(MainFragmentDirections.actionMainFragmentToGebruikerFragment(gebruiker))
+            .navigate(MainFragmentDirections.actionMainFragmentToGebruikerActivity(gebruiker))
         viewModel.naarGebruikerGegevensFinished()
     }
 

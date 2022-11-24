@@ -15,8 +15,8 @@
             android:id="@+id/action_mainFragment_to_lijstErvaringenFragment"
             app:destination="@id/lijstErvaringenFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_gebruikerFragment"
-            app:destination="@id/GebruikerFragment" />
+            android:id="@+id/action_mainFragment_to_gebruikerActivity"
+            app:destination="@id/gebruikerActivity" />
     </fragment>
     <fragment
         android:id="@+id/lijstErvaringenFragment"
@@ -28,18 +28,18 @@
             app:destination="@id/addErvaringFragment" />
     </fragment>
     <fragment
-        android:id="@+id/GebruikerFragment"
-        android:name="com.example.mijnwerkervaringen.GebruikerFragment"
-        android:label="fragment_gebruiker"
-        tools:layout="@layout/fragment_gebruiker" >
-        <argument
-            android:name="gebruiker"
-            app:argType="com.example.mijnwerkervaringen.Gebruiker" />
-    </fragment>
-    <fragment
         android:id="@+id/addErvaringFragment"
         android:name="com.example.mijnwerkervaringen.AddErvaringFragment"
         android:label="AddErvaringFragment"
         tools:layout="@layout/fragment_add_ervaring"/>
+    <activity
+        android:id="@+id/gebruikerActivity"
+        android:name="com.example.mijnwerkervaringen.GebruikerActivity"
+        android:label="GebruikerActivity"
+        tools:layout="@layout/activity_gebruiker">
+        <argument
+            android:name="gebruiker"
+            app:argType="com.example.mijnwerkervaringen.Gebruiker"/>
+    </activity>
 
 </navigation>
